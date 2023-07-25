@@ -1,0 +1,89 @@
+./bin/connect-distributed.sh
+USAGE: ./connect-distributed.sh [-daemon] connect-distributed.properties
+
+./bin/connect-mirror-maker.sh
+USAGE: ./connect-mirror-maker.sh [-daemon] mm2.properties
+
+./bin/connect-standalone.sh
+USAGE: ./connect-standalone.sh [-daemon] connect-standalone.properties
+
+// Manage acls on kafka
+./bin/kafka-acls.sh
+
+// Retrieve broker version information
+./bin/kafka-broker-api-versions.sh
+
+./bin/kafka-cluster.sh
+USAGE: kafka-cluster [-h] {cluster-id,unregister} ...
+
+// Use konfig files
+./bin/kafka-configs.sh
+	--bootstrap-server <localhost:9092>					// Set bootstrap server
+	--entity-type <entity_type>							// Set entity type
+	--entity-name <entity_name>							// Set entity name
+	--alter												// ???
+	--add-config retention.ms=60000						// ???
+
+// Use consumer
+./bin/kafka-console-consumer.sh
+	--bootstrap-server <localhost:9092>					// Set bootstrap server
+	--topic <topic_name>								// Set topic name
+	--consumer-property auto.offset.reset=earliest		// Set start reading offset
+	--from-beginning									// Set start reading offset to first message
+	--group <name>										// Set consumer group ID
+
+// Use produces
+./bin/kafka-console-producer.sh
+	--bootstrap-server <localhost:9092>					// Set bootstrap server
+
+// Use consumer group
+./bin/kafka-consumer-groups.sh
+	--bootstrap-server <localhost:9092>					// Set bootstrap server
+	--topic <topic_name>								// Set topic name
+	--reset-offsets										// Reset offsets
+	--to-earliest										// ???
+	--execute											// ???
+
+./bin/kafka-consumer-perf-test.sh
+./bin/kafka-delegation-tokens.sh
+./bin/kafka-delete-records.sh
+./bin/kafka-dump-log.sh
+./bin/kafka-e2e-latency.sh
+./bin/kafka-features.sh
+./bin/kafka-get-offsets.sh
+
+// Dump JMX values to standard output
+./bin/kafka-jmx.sh
+
+./bin/kafka-leader-election.sh
+./bin/kafka-log-dirs.sh
+./bin/kafka-metadata-quorum.sh
+./bin/kafka-metadata-shell.sh
+./bin/kafka-mirror-maker.sh
+./bin/kafka-producer-perf-test.sh
+./bin/kafka-reassign-partitions.sh
+./bin/kafka-replica-verification.sh
+./bin/kafka-run-class.sh
+
+// Start kafka server
+./bin/kafka-server-start.sh <args>
+
+./bin/kafka-server-stop.sh
+./bin/kafka-storage.sh
+./bin/kafka-streams-application-reset.sh
+
+// Handle topics
+./bin/kafka-topics.sh <args>
+	--versions									// Get kafka version
+
+./bin/kafka-transactions.sh
+./bin/kafka-verifiable-consumer.sh
+./bin/kafka-verifiable-producer.sh
+./bin/trogdor.sh
+./bin/zookeeper-security-migration.sh
+
+// Start zookeeper
+./bin/zookeeper-server-start.sh <args>
+
+./bin/zookeeper-server-stop.sh
+./bin/zookeeper-shell.sh

@@ -1,0 +1,26 @@
+// Go to kafka source location
+cd ~/kafka
+
+// Start Zookeeper
+./bin/zookeeper-server-start.sh config/zookeeper.properties
+
+// Start Kafka Broker
+./bin/kafka-server-start.sh config/server.properties
+
+// Create Kafka Topic
+./bin/kafka-topics.sh --bootstrap-server localhost:9092 \
+--replication-factor 1 \
+--partitions 1 \
+--topic text_topic
+
+// List all Topics
+./bin/kafka-topics.sh --bootstrap-server localhost:9092 --list
+
+// Describe Topic
+./bin/kafka-topics.sh --bootstrap-server localhost:9092 --describe
+
+// Run Kafka Producer
+./bin/kafka-console-producer.sh --bootstrap-server localhost:9092 --topic text_topic
+
+// Run Kafka Consumer
+./bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic text_topic --from-beginning

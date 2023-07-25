@@ -1,0 +1,11 @@
+// Get needed version
+https://kafka.apache.org/downloads
+
+// Download source for example
+https://downloads.apache.org/kafka/3.4.1/kafka-3.4.1-src.tgz
+
+// Unzip
+tar -xvf kafka-3.4.1-src.tgz
+
+// Go to dir
+cd kafka-3.4.1-src

@@ -1,0 +1,8 @@
+// Check retention settings interval (5 min default)
+log.retention.check.interval.ms
+
+// Life time for data segments (7 days default)
+segment.ms
+
+// Max size data segment
+segment.bytes

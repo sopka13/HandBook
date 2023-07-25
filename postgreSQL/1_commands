@@ -1,0 +1,55 @@
+// First entry (in bash)
+sudo -i -u postgres 	// Change user to Superuser
+pgsq 					// Enter to server
+createdb <name>			// Create DB
+
+
+// some commands (in sql server)
+\q			// Exit
+\du			// Show all users
+\l 			// Show all DB
+
+// Data processing
+SELECT		// Get data
+INSERT		// Add data`
+UPDATE		// Update data
+MERGE		// Update with add/remove/update data
+DELETE		// Remove data
+
+Определение да нных
+CREATE TABLE	// Add table
+DROP TABLE		// Remove table
+ALTER TABLE		// Change structure
+CREATE VIEW		// Add view in DB
+DROP VIEW		// Remove view from DB
+CREATE INDEX	// Create index for column
+DROP INDEX		// Remove column index
+CREATE SCHEMA	// Add new schema in DB
+DROP SCHEMA		// Remove schema from DB
+CREATE DOMAIN	// Add new domain
+ALTER DOMAIN	// Change domain
+DROP DOMAIN		// Remove domain
+
+// Access manage
+GRANT			// Add access privilegies for users
+REVOKE			// Remove access privilegies for users
+CREATE ROLE		// Add new role in DB
+GRANT ROLE		// Add new role with access privilegies
+DROP ROLE		// Remove role from DB
+
+// Transactions manage
+COMMIT				// Finish current transaction
+ROLLBACK			// Cancel current transaction
+SET TRANSACTION		// Set access settings with current transaction
+START TRANSACTION	// Start new transaction
+SAVE POINT			// Set save point transaction
+
+// Programming SQL`
+DECLARE			// Set query pointer
+EXPLAIN			// Return access plane in request
+OPEN			// Open query pointer for get request result
+FETCH			// Get string from request result
+CLOSE			// Close query pointer
+PREPARE			// Prepare SQL instruction for dynamic execution
+EXECUTE			// Dynamic execute SQL instruction
+DESCRIBE		// Describes prepared SQL instruction

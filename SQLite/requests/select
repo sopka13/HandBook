@@ -1,0 +1,220 @@
+/*
+CREATED BY: Sergey Seliverstov
+CREATED ON: 13.06.2023
+DESCRIPTION: First test request
+*/
+
+SELECT
+	*
+FROM
+	albums;
+
+-- ALIASES
+SELECT
+	FirstName AS 'First Name',
+	LastName AS [Last Name],
+	Email AS EMAIL,
+	Phone CELL
+FROM
+customers;
+	
+-- ORDER BY
+SELECT
+	FirstName AS [First Name],
+	LastName AS [Last Name],
+	Email AS [EMAIL]
+FROM
+	customers
+ORDER BY
+	FirstName ASC,
+	LastName DESC;
+	
+-- LIMIT
+SELECT
+	FirstName AS [First Name],
+	LastName AS [Last Name],
+	Email AS [EMAIL]
+FROM
+	customers
+ORDER BY
+	FirstName ASC,
+	LastName DESC
+LIMIT 10;
+	
+-- OPERATORS
+SELECT
+	Total AS [Original Amount],
+	Total + 10 AS [Addition Operator],
+	Total - 10 AS [Subtraction Operator],
+	Total / 10 AS [Division Operator],
+	Total * 10 AS [Multiplication Operator],
+	Total % 10 AS [Modulo Operator]
+FROM
+	invoices
+ORDER BY
+	Total DESC;
+	
+-- WHERE
+SELECT
+	InvoiceDate,
+	BillingAddress,
+	BillingCity,
+	Total
+FROM
+	invoices
+WHERE
+	Total = 1.98
+ORDER BY
+	InvoiceDate;
+	
+-- AND
+SELECT
+	InvoiceDate,
+	BillingAddress,
+	BillingCity,
+	Total
+FROM
+	invoices
+WHERE
+	Total BETWEEN 1.98 AND 5.00
+ORDER BY
+	InvoiceDate;
+	
+-- OR
+SELECT
+	InvoiceDate,
+	BillingAddress,
+	BillingCity,
+	Total
+FROM
+	invoices
+WHERE
+	Total = 1.98 OR Total = 8.91
+ORDER BY
+	InvoiceDate;
+	
+-- brackets
+SELECT
+	InvoiceDate,
+	BillingAddress,
+	BillingCity,
+	Total
+FROM
+	invoices
+WHERE
+	Total > 1.98
+	AND (BillingCity LIKE 'p%' OR BillingCity LIKE 'd%')
+ORDER BY
+Total
+
+-- IN
+SELECT
+	InvoiceDate,
+	BillingAddress,
+	BillingCity,
+	Total
+FROM
+	invoices
+WHERE
+	Total IN (1.98, 3.96)
+ORDER BY
+	InvoiceDate;
+	
+-- LIKE
+SELECT
+	InvoiceDate,
+	BillingAddress,
+	BillingCity,
+	Total
+FROM
+	invoices
+WHERE
+	BillingCity LIKE 'T%'
+ORDER BY
+	Total;
+	
+-- NOT
+SELECT
+	InvoiceDate,
+	BillingAddress,
+	BillingCity,
+	Total
+FROM
+	invoices
+WHERE
+	BillingCity NOT LIKE 'T%'
+ORDER BY
+	Total;
+	
+SELECT
+	InvoiceDate,
+	BillingAddress,
+	BillingCity,
+	Total
+FROM
+	invoices
+WHERE
+	InvoiceDate > '2009-07-05 00:00:00'
+ORDER BY
+	Total DESC
+LIMIT 10;
+
+-- CASE
+SELECT
+	InvoiceDate,
+	BillingAddress,
+	BillingCity,
+	Total,
+	CASE
+	WHEN TOTAL < 2.00 THEN 'Baseline Purchase'
+	WHEN TOTAL BETWEEN 2.00 AND 6.99 THEN 'Low Purchase'
+	WHEN TOTAL BETWEEN 7.00 AND 15.00 THEN 'Target Purchase'
+	ELSE 'Top Performers'
+	END AS PurchaseType
+FROM
+	invoices
+ORDER BY
+	BillingCity;
+	
+SELECT
+	InvoiceDate,
+	BillingAddress,
+	BillingCity,
+	Total,
+	CASE
+	WHEN BillingCity = 'Chicago' THEN 'Inside sell'
+	ELSE 'Outside sell'
+	END AS SellType
+FROM
+	invoices
+ORDER BY
+	BillingCity;
+	
+-- INNER JOIN
+SELECT *
+FROM invoices
+INNER JOIN customers
+ON invoices.CustomerId = customers.CustomerId;
+
+-- LEFT JOIN
+SELECT *
+FROM albums as al
+LEFT JOIN artists as ar on al.ArtistId = ar.ArtistId;
+
+-- RIGHT JOIN (not support SQLite)
+SELECT *
+FROM albums as al
+RIGHT JOIN artists as ar on al.ArtistId = ar.ArtistId;
+
+-- IS/NOT NULL
+SELECT *
+FROM artists as ar
+LEFT JOIN albums as al on al.ArtistId = ar.ArtistId
+WHERE al.ArtistId is NULL;
+
+-- VIEWS
+CREATE VIEW V_AvgTotal AS
+SELECT
+	ROUND(AVG(Total), 2) AS [Average Total]
+FROM
+	invoices;
