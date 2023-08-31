@@ -1,0 +1,11 @@
+// Get needed version
+https://flink.apache.org/downloads/
+
+// Download source for example
+https://dlcdn.apache.org/flink/flink-1.17.1/flink-1.17.1-bin-scala_2.12.tgz
+
+// Unzip
+tar -xvf flink-1.17.1-bin-scala_2.12.tgz 
+
+// Go to dir
+cd flink-1.17.1/

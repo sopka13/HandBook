@@ -1,0 +1,8 @@
+// Go to flink source location
+cd ~/flink
+
+// Start cluster
+./bin/start-cluster.sh
+
+// Start job
+./bin/flink run --class <class_name_with_main> /path/to/jar/file/file_name.jar

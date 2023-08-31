@@ -1,0 +1,5 @@
+// Go to flink source location
+cd ~/flink
+
+// Stop cluster
+./bin/stop-cluster.sh
