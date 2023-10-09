@@ -1,0 +1,33 @@
+#################################   OPENSSL   #################################
+
+1.	Show content .cer/.pem
+	openssl x509 -in certificate.cer -noout -text
+
+#################################   KEYTOOL   #################################
+
+1. Show one cert data
+	keytool -printcert -v -file mydomain.crt
+
+2. Show keystore data
+	keytool -list -keystore keystore_name.jks
+	keytool -list -keystore keystore_name.jks -v
+	keytool -list -keystore keystore_name.jks -v -storepass password
+
+3. Show keystore data for single cert
+	keytool -list -v -keystore keystore.jks -storepass password -alias mydomain
+
+4. Delete one cert from keystore
+	keytool -delete -alias mydomain -keystore keystore.jks -storepass password
+
+5. Change keystore pass
+	keytool -storepasswd -new new_storepass -keystore keystore.jks -storepass password
+
+6. Change private key pass
+	keytool -keypasswd -alias client -keypass old_password -new new_password -keystore client.jks -storepass password
+
+7. Export cert from keystore
+	keytool -exportcert -keystore keystore_name.jks -alias alias_name -file dest_file_name.cer
+
+8. Import single sert to keystore
+	keytool -importcert -keystore keystore_name.jks -file cert_file.cer
+
