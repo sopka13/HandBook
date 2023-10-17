@@ -1,0 +1,30 @@
+1.	.cer => .der
+	openssl x509 -inform pem -in certificate.pem -outform der -out certificate.cer
+
+2.	.der => .cer
+	openssl x509 -inform der -in certificate.cer -outform pem -out certificate.pem
+
+3.	.der => .pem
+	openssl x509 -inform der -in certificate.cer -out certificate.pem
+
+4.	.pem => .der
+	openssl x509 -outform der -in certificate.pem -out certificate.der
+
+5.	.pem => .pkcs7/.p7b
+	openssl crl2pkcs7 -nocrl -certfile certificate.cer -out certificate.p7b -certfile CACert.cer
+
+6.	.pem => .pkcs12/.pfx
+	openssl pkcs12 -export -out certificate.pfx -inkey privateKey.key -in certificate.crt -certfile CACert.crt
+
+7.	.pkcs7/.p7b => .pem
+	openssl pkcs7 -print_certs -in certificate.p7b -out certificate.cer
+
+8.	.pkcs7/.p7b => .pkcs12/.pfx
+	openssl pkcs7 -print_certs -in certificate.p7b -out certificate.cer
+	openssl pkcs12 -export -in certificate.cer -inkey privateKey.key -out certificate.pfx -certfile CACert.cer
+
+9.	.pkcs12/.pfx => .pem
+	openssl pkcs12 -in certificate.pfx -out certificate.cer -nodes
+
+10.	.pkcs12/.pfx => .pkcs7/.p7b
+	openssl pkcs12 -in certificate.pfx -out certificate.cer -nodes 
