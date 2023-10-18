@@ -26,7 +26,7 @@
 	keytool -keypasswd -alias client -keypass old_password -new new_password -keystore client.jks -storepass password
 
 7. Export cert from keystore
-	keytool -exportcert -keystore keystore_name.jks -alias alias_name -file dest_file_name.cer
+	keytool -exportcert -keystore keystore_name.jks -alias alias_name -file dest_file_name.cer -rfc
 
 8. Import single sert to keystore
 	keytool -importcert -keystore keystore_name.jks -file cert_file.cer
