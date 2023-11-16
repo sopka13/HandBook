@@ -1,0 +1,33 @@
+// Start
+sbt
+
+// Exit
+exit
+
+// Compile project
+// from cli
+sbt compile
+// from sbt console
+compile
+
+// Auto compile after change code
+~compile
+// exit from this mode
+press enter
+
+// Get help
+help
+// get help for command
+help run
+
+// Run app
+run
+
+// Set ThisBuild/scalaVersion and other
+set ThisBuild / scalaVersion := "2.13.12"
+
+// Save session for save changes
+session save
+
+// Reload build after change build.sbt
+reload

@@ -1,0 +1,29 @@
+// Single line comment
+
+// Set scala version
+ThisBuild / scalaVersion := "2.13.12"
+
+// Set organization name 
+ThisBuild / organization := "com.example"
+
+// Set project name
+lazy val root = (project in file("."))
+  .settings(
+    name := "Project_name"
+  )
+
+// Add library dependencies
+lazy val root = project
+  .in(file("."))
+  .settings(
+    name := "Project_name",
+    libraryDependencies += "org.scala-lang" %% "toolkit-test" % "0.1.7" % Test
+  )
+// or
+libraryDependencies ++= Seq(
+    "org.scala-lang"    %% "toolkit-test"   %   "0.1.7" % Test,
+    "com.typesave.play" %%  "play"          %   "2.8.8"
+)
+// or
+libraryDependencies += "com.typesafe.play" %% "twirl-api" % "1.6.1"
+
