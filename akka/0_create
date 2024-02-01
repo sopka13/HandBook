@@ -1,0 +1,13 @@
+// Create actors
+// with parant's
+ActorContext.spawn()
+
+// first actor
+ActorSystem(Behaviors, "name")
+
+// Stop actors
+// inside actor
+Behaviors.stopped
+
+// stop child
+context.stop(childRef)

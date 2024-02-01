@@ -1,0 +1,2 @@
+// Install server and client ssh
+sudo apt install openssh-client openssh-server
