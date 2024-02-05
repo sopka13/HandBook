@@ -2,7 +2,7 @@
 2. Stepic. Основы Scala									23.01.2024		148/148
 3. O_Kriptografii_Vseryez.pdf							09.10.2023		0/330
 4. JavaScript_s_nulya_2021_Chinnatkhambi.pdf			01.02.2024		400/400
-5. Mardan_A_-_React_bystro_2019.pdf						05.02.2024		25/560
+5. Mardan_A_-_React_bystro_2019.pdf						05.02.2024		31/560
 
 TO DO
 -- Scala
@@ -13,6 +13,8 @@ TO DO
 	5) Inject
 -- SBT
 	- https://www.scala-sbt.org/1.x/docs/index.html
+-- Flink
+	1) understand what our flink flows does
 
 -- English
 	- https://english-practice.net
