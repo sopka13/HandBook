@@ -1,0 +1,5 @@
+// Do connection
+ssh localhost
+
+// Do connection with userName hostt and port
+ssh ivan@127.0.0.1 -p 2222
