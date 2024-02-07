@@ -1,7 +1,7 @@
-// Start
+// Start sbt shell
 sbt
 
-// Exit
+// Exit sbt shell
 exit
 
 // Compile project
@@ -31,3 +31,6 @@ session save
 
 // Reload build after change build.sbt
 reload
+
+// Create .zip distribution
+dist
