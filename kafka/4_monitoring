@@ -1,0 +1,17 @@
+// Check if Kafka is Running
+netstat –tlnp | grep :9092
+
+// Check if zooleeper is running
+netstat –tlnp | grep :2181
+
+// Get info from remote kafka with TLS
+/kafka/path/bin/kafka-topic --bootstrap-server 10.10.10.21:9092 --command-config config_file --list
+
+config_file
+ssl.keystore.location=/some/path/to/jks/file
+ssl.keystore.password=somePass
+security.protocol=SSL
+ssl.truststore.location=/some/path/to/trust/storage/jks
+ssl.truststore.password=somePass
+ssl.endpoint.identification.algorithm=
+enable.auto.commit=false
